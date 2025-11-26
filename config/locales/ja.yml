@@ -92,6 +92,7 @@ ja:
     index:
       title: "書籍一覧"
       new_book: "新規登録"
+      show: "詳細"
     show:
       edit: "編集"
       destroy: "削除"
