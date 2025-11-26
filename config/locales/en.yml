@@ -22,6 +22,8 @@ en:
       back: "Back to books"
     edit:
       title: "Editing Book"
+      show: "Show"
+      back: "Back"
     form:
       submit: "Save"
   flash:

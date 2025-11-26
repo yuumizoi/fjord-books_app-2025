@@ -102,6 +102,10 @@ ja:
     new:
       title: "書籍登録"
       back: "一覧に戻る"
+    edit:
+      title: "書籍編集"
+      show: "詳細"
+      back: "一覧に戻る"
   errors:
     format: "%{attribute}%{message}"
     messages:
