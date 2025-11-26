@@ -7,6 +7,8 @@ ja:
       book:
         title: タイトル
         memo: メモ
+        author: 著者
+        picture: 画像
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -96,6 +98,9 @@ ja:
     show:
       edit: "編集"
       destroy: "削除"
+      back: "一覧に戻る"
+    new:
+      title: "書籍登録"
       back: "一覧に戻る"
   errors:
     format: "%{attribute}%{message}"

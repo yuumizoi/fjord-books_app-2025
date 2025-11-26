@@ -6,6 +6,8 @@ en:
       book:
         title: Title
         memo: Memo
+        author: Author
+        picture: Picture
   books:
     index:
       title: "Books"
@@ -15,12 +17,13 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       back: "Back"
-    form:
-      submit: "Save"
     new:
       title: "New Book"
+      back: "Back to books"
     edit:
       title: "Editing Book"
+    form:
+      submit: "Save"
   flash:
     create: "Book was successfully created."
     update: "Book was successfully updated."
