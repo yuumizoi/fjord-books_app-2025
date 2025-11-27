@@ -208,3 +208,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  flash:
+    create: "書籍が作成されました。"
+    update: "書籍が更新されました。"
+    destroy: "書籍が削除されました。"
