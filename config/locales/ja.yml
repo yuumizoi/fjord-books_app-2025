@@ -206,3 +206,17 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      activerecord:
+  devise:
+    registrations:
+      edit:
+        unhappy: "アカウント削除のお手続きをご希望される方はこちら"
+        cancel_my_account: "アカウント削除"
+  activerecord:
+    attributes:
+      user:
+        name: 氏名
+        email: Eメール
+        zip_code: 郵便番号
+        address: 住所
+        self_introduction: 自己紹介文
