@@ -206,12 +206,17 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
-      activerecord:
   devise:
     registrations:
       edit:
         unhappy: "アカウント削除のお手続きをご希望される方はこちら"
         cancel_my_account: "アカウント削除"
+    failure:
+      unauthenticated: 'ログイン、またはアカウント登録のお手続きをお願いします'
+    passwords:
+      new:
+        submit: '再設定メールを送信'
+        forgot_your_password: 'パスワード再設定'
   activerecord:
     attributes:
       user:
