@@ -209,6 +209,6 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   flash:
-    create: "書籍が作成されました。"
-    update: "書籍が更新されました。"
-    destroy: "書籍が削除されました。"
+    create: "%{model}を作成しました。"
+    update: "%{model}を更新しました。"
+    destroy: "%{model}を削除しました。"
