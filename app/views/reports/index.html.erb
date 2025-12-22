@@ -2,15 +2,15 @@
 
 <% content_for :title, "Reports" %>
 
-<h1>Reports</h1>
+<h1>日報一覧</h1>
 
 <div id="reports">
   <% @reports.each do |report| %>
     <%= render report %>
     <p>
-      <%= link_to "Show this report", report %>
+      <%= link_to "詳細を見る", report %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New report", new_report_path %>
+<%= link_to "日報を新規作成", new_report_path %>
