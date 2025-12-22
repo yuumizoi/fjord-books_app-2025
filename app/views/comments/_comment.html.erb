@@ -1,0 +1,11 @@
+<div style="border-top: 1px solid #eee; padding: 10px 0;">
+  <p>
+    <strong><%= comment.user.email %></strong>
+    <span style="color: grey; font-size: 0.8em;"><%= time_ago_in_words(comment.created_at) %> ago</span>
+  </p>
+  <p><%= simple_format(comment.content) %></p>
+
+  <% if current_user == comment.user %>
+    <%= link_to '削除', [comment.commentable, comment], data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, style: "color: red;" %>
+  <% end %>
+</div>

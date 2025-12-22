@@ -8,3 +8,12 @@
 
   <%= button_to "Destroy this report", @report, method: :delete %>
 </div>
+
+<hr>
+
+<div id="comments-section">
+  <h3>コメント</h3>
+  <%= render @report.comments %>
+</div>
+
+<%= render 'comments/form', commentable: @report %>
