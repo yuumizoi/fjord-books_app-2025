@@ -27,6 +27,8 @@ class CommentsController < ApplicationController
   def find_commentable
     if params[:report_id]
       Report.find(params[:report_id])
+    elsif params[:book_id]
+      Book.find(params[:book_id])
     end
   end
 end
