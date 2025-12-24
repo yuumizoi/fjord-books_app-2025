@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
+  before_action :set_report, only: %i[show edit update destroy]
   before_action :ensure_correct_user, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
@@ -24,23 +25,19 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
 
-    respond_to do |_format|
-      if @report.save
-        before_action :ensure_correct_user, only: %i[edit update destroy]
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @report.save
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
-    respond_to do |_format|
-      if @report.update(report_params)
-        redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @report.update(report_params)
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

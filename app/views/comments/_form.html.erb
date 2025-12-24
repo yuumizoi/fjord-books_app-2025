@@ -1,7 +1,7 @@
 <%= form_with(model: [commentable, Comment.new]) do |form| %>
   <div style="margin-top: 20px;">
     <%= form.label :content, "コメントを書く" %><br>
-    <%= form.text_area :content, rows: 3, style: "width: 100%;" %>
+    <%= form.text_area :content, rows: 3, style: "width: 100%;", required: true %>
   </div>
   <div style="margin-top: 10px;">
     <%= form.submit "投稿する" %>
