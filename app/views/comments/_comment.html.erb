@@ -6,6 +6,6 @@
   <p><%= simple_format(comment.content) %></p>
 
   <% if current_user == comment.user %>
-    <%= link_to '削除', [comment.commentable, comment], data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, style: "color: red;" %>
+    <%= link_to '削除', [comment.commentable, comment], data: { turbo_method: :delete, turbo_confirm: t('views.common.delete_confirm') }, style: "color: red;" %>
   <% end %>
 </div>
