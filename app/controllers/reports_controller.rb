@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update destroy]
+  before_action :ensure_correct_user, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -24,26 +24,22 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
 
-    respond_to do |format|
+    respond_to do |_format|
       if @report.save
-        format.html { redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
-        format.json { render :show, status: :created, location: @report }
+        before_action :ensure_correct_user, only: %i[edit update destroy]
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
   end
 
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
-    respond_to do |format|
+    respond_to do |_format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human) }
-        format.json { render :show, status: :ok, location: @report }
+        redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity
       end
     end
   end
@@ -51,11 +47,7 @@ class ReportsController < ApplicationController
   # DELETE /reports/1 or /reports/1.json
   def destroy
     @report.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to reports_path, status: :see_other, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
-      format.json { head :no_content }
-    end
+    redirect_to reports_path, status: :see_other, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
@@ -64,8 +56,14 @@ class ReportsController < ApplicationController
     @report = Report.find(params.expect(:id))
   end
 
+  def ensure_correct_user
+    return if @report.user == current_user
+
+    redirect_to reports_path, alert: '権限がありません。'
+  end
+
   # Only allow a list of trusted parameters through.
   def report_params
-    params.expect(report: %i[title body user_id])
+    params.expect(report: %i[title body])
   end
 end
