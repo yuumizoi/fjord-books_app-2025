@@ -1,4 +1,4 @@
-<h1>ユーザー一覧</h1>
+<h1><%= t('.title') %></h1>
 
 <table>
   <thead>
@@ -13,7 +13,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to '詳細', user %></td>
+        <td><%= link_to t('views.common.show', name: ''), user %></td>
       </tr>
     <% end %>
   </tbody>
