@@ -188,7 +188,7 @@ ja:
       edit: "この%{name}を編集"
       destroy: "この%{name}を削除"
       new: "%{name}の新規作成"
-      back: "%{name}の一覧に戻る"
+      back: "一覧に戻る"
       delete_confirm: よろしいですか？
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
@@ -209,6 +209,7 @@ ja:
   devise:
     registrations:
       edit:
+        title: "プロフィール編集"
         unhappy: "アカウント削除のお手続きをご希望される方はこちら"
         cancel_my_account: "アカウント削除"
     failure:

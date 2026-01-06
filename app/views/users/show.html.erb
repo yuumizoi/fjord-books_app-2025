@@ -1,6 +1,6 @@
 <%# app/views/users/show.html.erb %>
 
-<h1><%= @user.name %> のプロフィール</h1>
+<h1><%= t('.title', name: @user.name) %></h1>
 
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
@@ -25,7 +25,7 @@
 <hr>
 
 <% if current_user == @user %>
-  <%= link_to 'アカウント情報を編集', edit_user_registration_path %>
+  <%= link_to t('devise.registrations.edit.title'), edit_user_registration_path %>
 <% end %>
 
-<%= link_to 'ユーザー一覧へ戻る', users_path %>
+<%= link_to t('views.common.back', name: ''), users_path %>
