@@ -1,6 +1,20 @@
 ---
 ja:
   activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 画像
+        title: タイトル
+      user:
+        name: 氏名
+        email: Eメール
+        postal_code: 郵便番号
+        address: 住所
+        self_introduction: 自己紹介文
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -218,14 +232,6 @@ ja:
       new:
         submit: '再設定メールを送信'
         forgot_your_password: 'パスワード再設定'
-  activerecord:
-    attributes:
-      user:
-        name: 氏名
-        email: Eメール
-        postal_code: 郵便番号
-        address: 住所
-        self_introduction: 自己紹介文
   layouts:
     application:
       logged_in_as: "ログイン中"
