@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_one_attached :user_icon
+  has_one_attached :user_icon do |attachable|
+    attachable.variant :display, resize_to_limit: [200, 200]
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validate :validate_user_icon_type
