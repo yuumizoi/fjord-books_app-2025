@@ -20,11 +20,21 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  after_save :save_mentions
+
   def editable?(target_user)
     user == target_user
   end
 
   def created_on
     created_at.to_date
+  end
+
+  private
+
+  def save_mentions
+    found_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
+    report_ids = Report.where(id: found_ids).where.not(id: id).pluck(:id)
+    self.mentioning_report_ids = report_ids
   end
 end
