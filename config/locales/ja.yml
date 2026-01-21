@@ -1,6 +1,20 @@
 ---
 ja:
   activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 画像
+        title: タイトル
+      user:
+        name: 氏名
+        email: Eメール
+        postal_code: 郵便番号
+        address: 住所
+        self_introduction: 自己紹介文
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -184,11 +198,11 @@ ja:
     pm: 午後
   views:
     common:
-      show: "この%{name}を表示"
+      show: "詳細"
       edit: "この%{name}を編集"
       destroy: "この%{name}を削除"
       new: "%{name}の新規作成"
-      back: "%{name}の一覧に戻る"
+      back: "一覧に戻る"
       delete_confirm: よろしいですか？
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
@@ -206,3 +220,25 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+  devise:
+    registrations:
+      edit:
+        title: "プロフィール編集"
+        unhappy: "アカウント削除のお手続きをご希望される方はこちら"
+        cancel_my_account: "アカウント削除"
+    failure:
+      unauthenticated: 'ログイン、またはアカウント登録のお手続きをお願いします'
+    passwords:
+      new:
+        submit: '再設定メールを送信'
+        forgot_your_password: 'パスワード再設定'
+  layouts:
+    application:
+      logged_in_as: "ログイン中"
+      logout: "ログアウト"
+      login: "ログイン"
+  users:
+    index:
+      title: "ユーザー一覧"
+    show:
+      title: "%{name} のプロフィール"

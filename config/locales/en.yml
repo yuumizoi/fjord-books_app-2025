@@ -218,21 +218,63 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+    models:
+      book: Book
+    attributes:
+      book:
+        author: Author
+        memo: Memo
+        picture: Picture
+        title: Title
+      user:
+        name: Name
+        email: Email
+        postal_code: Postal code
+        address: Address
+        self_introduction: Self introduction
   views:
     common:
-      show: "Show this %{name}"
+      show: "Details"
       edit: "Edit this %{name}"
       destroy: "Destroy this %{name}"
       new: "New %{name}"
-      back: "Back to %{name}"
+      back: "Back to list"
       delete_confirm: "Are you sure?"
-      title_index: "%{name}"
+      title_index: "List of %{name}"
       title_new: "New %{name}"
-      title_edit: "Editing %{name}"
-      error: error
-      validation_error: "%{errors} prohibited this %{name} from being saved"
+      title_edit: "Edit %{name}"
+      error: Error
+      validation_error: "This %{name} could not be saved because of %{errors}"
+    pagination:
+      first: '« First'
+      last: 'Last »'
+      previous: '‹ Prev'
+      next: 'Next ›'
+      truncate: '…'
   controllers:
     common:
       notice_create: "%{name} was successfully created."
       notice_update: "%{name} was successfully updated."
       notice_destroy: "%{name} was successfully destroyed."
+  devise:
+    registrations:
+      edit:
+        title: "Edit Profile"
+        unhappy: "Click here to delete your account"
+        cancel_my_account: "Delete account"
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing'
+    passwords:
+      new:
+        submit: 'Send reset password email'
+        forgot_your_password: 'Forgot your password?'
+  layouts:
+    application:
+      logged_in_as: "Logged in"
+      logout: "Log out"
+      login: "Log in"
+  users:
+    index:
+      title: "User List"
+    show:
+      title: "%{name}'s Profile"

@@ -1,0 +1,31 @@
+<%# app/views/users/show.html.erb %>
+
+<h1><%= t('.title', name: @user.name) %></h1>
+
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
+  <%= @user.postal_code %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:self_introduction) %>:</strong>
+  <%= simple_format(@user.self_introduction) %>
+</p>
+
+<hr>
+
+<% if current_user == @user %>
+  <%= link_to t('devise.registrations.edit.title'), edit_user_registration_path %>
+<% end %>
+
+<%= link_to t('views.common.back', name: ''), users_path %>
