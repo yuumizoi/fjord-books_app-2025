@@ -8,10 +8,10 @@
   <div class="mentions">
     <h3>この日報に言及している日報</h3>
     <ul>
-      <% @report.mentioned_reports.each do |mentioning_report| %>
+      <% @report.mentioned_reports.order(created_at: :desc).each do |mentioning_report| %>
         <li>
           <%= link_to mentioning_report.title, mentioning_report %>
-          (<%= mentioning_report.user.name %>)
+          (<%= mentioning_report.user.name_or_email %>)
         </li>
       <% end %>
     </ul>

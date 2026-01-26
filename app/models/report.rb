@@ -8,6 +8,7 @@ class Report < ApplicationRecord
                              foreign_key: 'mentioning_report_id',
                              dependent: :destroy,
                              inverse_of: :mentioning_report
+
   has_many :mentioning_reports, through: :active_mentions, source: :mentioned_report
 
   has_many :passive_mentions, class_name: 'Mention',
