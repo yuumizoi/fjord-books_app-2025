@@ -1,0 +1,17 @@
+<%= render @report %>
+
+<div>
+  <%= link_to "編集する", edit_report_path(@report) %> |
+  <%= link_to "一覧に戻る", reports_path %>
+
+  <%= button_to "削除する", @report, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？" } } %>
+</div>
+
+<hr>
+
+<div id="comments-section">
+  <h3>コメント</h3>
+  <%= render @report.comments %>
+</div>
+
+<%= render 'comments/form', commentable: @report %>

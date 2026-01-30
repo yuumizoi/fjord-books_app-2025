@@ -1,0 +1,14 @@
+<% content_for :title, "Reports" %>
+
+<h1>日報一覧</h1>
+
+<div id="reports">
+  <% @reports.each do |report| %>
+    <%= render report %>
+    <p>
+      <%= link_to "詳細を見る", report %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "日報を新規作成", new_report_path %>
