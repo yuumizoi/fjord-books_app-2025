@@ -29,4 +29,10 @@ class ReportTest < ActiveSupport::TestCase
     report = Report.new(title: "今日の日報", content: "今日はこれをやった", user: user1)
     assert_not report.editable?(user2)
   end
+  test "returns date from created_at" do
+    user = User.new(email: "test@example.com", password: "password123")
+    report = Report.new(title: "今日の日報", content: "今日はこれをやった", user: user)
+    report.save
+    assert_equal(report.created_at.to_date, report.created_on)
+  end
 end
