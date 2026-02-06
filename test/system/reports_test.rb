@@ -3,16 +3,13 @@
 require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
-  def login
-    visit new_user_session_path
-    fill_in 'Eメール', with: "one@example.com"
-    fill_in 'パスワード', with: "password123"
-    click_on 'ログイン'
-    assert_text 'ログインしました'
+
+  setup do
+    @user = users(:one)
   end
 
   test "user can login and create report" do
-    login
+    login(@user)
     visit reports_path
     click_on '日報の新規作成'
     fill_in 'タイトル', with: "テスト日報"
@@ -20,9 +17,9 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '登録する'
     assert_text '日報が作成されました'
   end
-  
+
   test "user can edit report" do
-    login
+    login(@user)
     visit reports_path
     click_on '日報の新規作成'
     fill_in 'タイトル', with: "編集前のタイトル"
@@ -36,7 +33,7 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test "user can delete report" do
-    login
+    login(@user)
     visit reports_path
     click_on '日報の新規作成'
     fill_in 'タイトル', with: "削除するタイトル"
