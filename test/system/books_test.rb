@@ -17,19 +17,20 @@ class BooksTest < ApplicationSystemTestCase
   test 'should create book' do
     visit books_url
     click_on '本の新規作成'
-    fill_in 'タイトル', with: @book.title
-    fill_in 'メモ', with: @book.memo
+    fill_in 'タイトル', with: '新しい本のタイトル'
+    fill_in 'メモ', with: '新しい本のメモ'
     click_on '登録する'
     assert_text '本が作成されました。'
+    assert_text '新しい本のタイトル'
   end
 
   test 'should update Book' do
     visit book_url(@book)
     click_on 'この本を編集', match: :first
-    fill_in 'タイトル', with: @book.title
-    fill_in 'メモ', with: @book.memo
+    fill_in 'タイトル', with: '更新されたタイトル'
     click_on '更新する'
     assert_text '本が更新されました。'
+    assert_text '更新されたタイトル'
   end
 
   test 'should destroy Book' do
