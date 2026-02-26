@@ -47,16 +47,16 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'should update mentions when report content is updated' do
-    user = users(:one)
+    users(:one)
     report = reports(:one)
     other_report = reports(:two)
     report_url = "http://localhost:3000/reports/#{other_report.id}"
-    
+
     report.update!(content: "URLを追記しました #{report_url}")
     assert_includes report.reload.mentioning_reports, other_report
     assert_equal 1, report.mentioning_reports.count
-    
-    report.update!(content: "URLを消しました")
+
+    report.update!(content: 'URLを消しました')
     assert_not_includes report.reload.mentioning_reports, other_report
     assert_equal 0, report.mentioning_reports.count
   end
